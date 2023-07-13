@@ -1,0 +1,187 @@
+https://docs.google.com/forms/d/e/1FAIpQLScXbqGmV0GI07WJvthXzanWuKaWOlNDDj2tx3zPdFpXa3BgwA/formResponse
+
+
+entry.475477763=SpongeBob
+
+entry.956938607=Gracefully+Accept
+
+entry.956938607=Regretfully+Decline
+
+
+LINK
+
+
+https://docs.google.com/forms/d/e/1FAIpQLScXbqGmV0GI07WJvthXzanWuKaWOlNDDj2tx3zPdFpXa3BgwA/formResponse
+
+https://docs.google.com/forms/d/e/1FAIpQLScXbqGmV0GI07WJvthXzanWuKaWOlNDDj2tx3zPdFpXa3BgwA/formResponse
+
+entry.475477763=John+Doe
+
+entry.956938607=Gracefully+Accept
+
+entry.956938607=Regretfully+Decline
+
+entry.1477965653=Scottish+Salmon+with+Beetroot+%26+Granary+Bread
+
+entry.1477965653=Greek+Meze+with+Shish+Kebab
+
+entry.1477965653=Homemade+Soup+(Carrot+%26+Coriander+Spicy+Parsnip)
+
+entry.711673005=Chargrilled+Breast+of+Chicken+served+with+Roasted+Mediterranean+Vegetables,+Dauphinois+Potatoes+and+a+Tangy+Tomato+Sauce
+
+entry.711673005=Rump+of+Lamb+or+Lamb+Shank+with+Fondant+Potato,+Swede,+Carrot+Pur%C3%A9e+and+Grilled+Vegetables+with+a+Mint+Jus
+
+entry.711673005=Roasted+Sea+Bass+with+Proven%C3%A7als+of+Vegetables,+a+Red+Pepper+Sauce+and+Roasted+New+Potatoes
+
+entry.711673005=Roast+Vegetable+Wellington
+
+entry.1175346112=Profiteroles+with+Chocolate+Sauce
+
+entry.1175346112=Apple+Crumb+with+Custard
+
+entry.1175346112=Trio+of+Desserts
+
+
+//Submit Form tsx component
+
+import axios from 'axios';
+
+interface FormData {
+  name: string;
+  rsvp: string[];
+  starter: string[];
+  mainCourse: string[];
+  dessert: [];
+}
+
+export const submitForm = async (formData: FormData) => {
+  try {
+    // Replace 'YOUR_GOOGLE_FORM_URL' with the actual URL of your Google Form submission endpoint
+    const url = 'https://docs.google.com/forms/d/e/1FAIpQLScXbqGmV0GI07WJvthXzanWuKaWOlNDDj2tx3zPdFpXa3BgwA/formResponse';
+
+    // Build the form data to be submitted
+    const bodyFormData = new FormData();
+    
+    bodyFormData.append('entry.475477763', formData.name); 
+    // Replace 'entry.1234567890' with the actual entry ID for the 'Name' field in your Google Form
+    
+    formData.rsvp.forEach((option) => {
+      bodyFormData.append('entry.956938607', option); 
+      // Replace 'entry.2345678901' with the actual entry ID for the 'RSVP' field in your Google Form
+    });
+
+    formData.starter.forEach((option) => {
+      bodyFormData.append('entry.1477965653', option); 
+      // Replace 'entry.2345678901' with the actual entry ID for the 'Starter' field in your Google Form
+    });
+    
+    formData.mainCourse.forEach((option) => {
+      bodyFormData.append('entry.711673005', option); 
+      // Replace 'entry.3456789012' with the actual entry ID for the 'Main Course' field in your Google Form
+    });
+
+    formData.dessert.forEach((option) => {
+      bodyFormData.append('entry.1175346112', option); 
+      // Replace 'entry.3456789012' with the actual entry ID for the 'Dessert' field in your Google Form
+    });
+
+    // Make the POST request to submit the form data to the Google Form
+    await axios.post(url, bodyFormData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    // Return true to indicate successful form submission
+    return true;
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    // Return false or throw an error to indicate form submission failure
+    return false;
+  }
+};
+
+//Handle Submit function
+
+import { useState, ChangeEvent, FormEvent } from 'react';
+import { useRouter } from 'next/router';
+import { submitForm } from '../path/to/submitForm';
+
+interface FormData {
+  name: string;
+  rsvp: string[];
+  starter: string[];
+  mainCourse: string[];
+  dessert: [];
+}
+
+const Form = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    rsvp: string[];
+    starter: string[];
+    mainCourse: string[];
+    dessert: [];
+  });
+
+  const router = useRouter();
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value, checked } = e.target;
+
+    if (checked) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: [...prevFormData[name], value],
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: prevFormData[name].filter((option) => option !== value),
+      }));
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    const formSubmitted = await submitForm(formData);
+    if (formSubmitted) {
+      console.log('Form submitted successfully!');
+      // Redirect to the submission complete page
+      router.push('/submission-complete');
+    } else {
+      console.log('Form submission failed!');
+      //Redirect to error page
+      router.push('/submission-complete/error');
+    }
+  };
+ 
+
+SECOND Form
+
+https://docs.google.com/forms/d/e/1FAIpQLSducJZQOIWVXKSIcD9wtqZ1KmFbEJ01nHNH28fLGUCX5KV6cw/viewform?usp=pp_url&
+
+
+entry.380181804=Luke+TA&
+
+entry.765847282=Gracefully+Accept&
+
+entry.1308268607=Scottish+Salmon+with+Beetroot+%26+Granary+Bread&
+
+entry.458145202=Chargrilled+Breast+of+Chicken+served+with+Roasted+Mediterranean+Vegetables,+Dauphinois+Potatoes+and+a+Tangy+Tomato+Sauce&
+
+entry.1655270632=Profiteroles+with+Chocolate+Sauce
+
+
+
+https://docs.google.com/forms/d/e/1FAIpQLSdddeQDHW3oZpHvLWbU5lDmkv9lnT3CWKIctJDHnN59qgWe_w/viewform?usp=pp_url&entry.29388653=Luke+TA
+
+https://docs.google.com/forms/d/e/1FAIpQLSdddeQDHW3oZpHvLWbU5lDmkv9lnT3CWKIctJDHnN59qgWe_w/viewform?usp=pp_url&entry.29388653=Luke+
+
+https://docs.google.com/forms/d/e/1FAIpQLSdddeQDHW3oZpHvLWbU5lDmkv9lnT3CWKIctJDHnN59qgWe_w/viewform?usp=sf_link
+
+https://docs.google.com/forms/d/e/1FAIpQLSdddeQDHW3oZpHvLWbU5lDmkv9lnT3CWKIctJDHnN59qgWe_w/viewform?usp=pp_url&entry.29388653=Drake&entry.1986440721=Gracefully+Accept
+
+
+https://docs.google.com/forms/d/e/1FAIpQLSdddeQDHW3oZpHvLWbU5lDmkv9lnT3CWKIctJDHnN59qgWe_w/viewform?usp=pp_url&entry.29388653=Rueda+Libre&entry.2051004852=Scottish+Salmon+with+Beetroot+%26+Granary+Bread&entry.461016866=Rump+of+Lamb+or+Lamb+Shank+with+Fondant+Potato,+Swede,+Carrot+Pur%C3%A9e+and+Grilled+Vegetables+with+a+Mint+Jus&entry.294038248=Apple+Crumb+with+Custard

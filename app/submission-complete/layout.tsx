@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+import Header from "../components/Header";
 import "./globals.css";
 import { EB_Garamond } from "next/font/google";
 
