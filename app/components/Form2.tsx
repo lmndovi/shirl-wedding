@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 type RsvpFormData = {
   name: string;
   starters: string[];
-  // mains: string[];
-  // desserts: string[];
+  mains: string[];
+  desserts: string[];
   [key: string]: string | string[];
 };
 
@@ -14,9 +15,13 @@ export default function RsvpForm() {
   const [formData, setFormData] = useState<RsvpFormData>({
     name: "",
     starters: [],
-    // mains: [],
-    // desserts: [],
+    mains: [],
+    desserts: [],
   });
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const router = useRouter();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -69,10 +74,14 @@ export default function RsvpForm() {
       });
 
       // Handle success
-      console.log("RSVP submitted successfully!");
+      router.push("/rsvp/success");
     } catch (error) {
       // Handle submission error
-      console.error("Error submitting RSVP:", error);
+      setShowPopup(true); // Show the pop-up
+      // Wait for 3 seconds before redirecting to the homepage
+      setTimeout(() => {
+        router.push("/");
+      }, 6000);
     }
   };
 
@@ -81,8 +90,8 @@ export default function RsvpForm() {
     const entryKeys: Record<string, string> = {
       name: "29388653",
       starters: "2051004852",
-      // mains: "461016866",
-      // desserts: "294038248",
+      mains: "461016866",
+      desserts: "294038248",
       // Add more fields as needed
     };
 
@@ -90,12 +99,27 @@ export default function RsvpForm() {
   };
 
   return (
-    <div>
-      <h1>Will You Be Joining Us?</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className="mt-10">
+      <div>
+        {/* Pop-up */}
+
+        {showPopup && (
+          <div className="p-5 rounded-xl bg-[#529864] text-white mx-auto my-8 z-50 shadow-md top-2/4 w-1/2 text-center font-sans">
+            <h1 className="text-lg font-bold ">Submission Successful!</h1>
+            <p>Thank you for submitting your RSVP.</p>
+          </div>
+        )}
+      </div>
+
+      <h1 className="text-2xl text-center font-semibold">
+        Will you be joining us?
+      </h1>
+      <form className="mt-8" onSubmit={handleSubmit}>
+        <label className="text-lg">
           Name(s) of our fabulous guests:{" "}
           <input
+            placeholder="John Doe"
+            className=" font-normal ml-1"
             type="text"
             name="name"
             value={formData.name}
@@ -103,15 +127,15 @@ export default function RsvpForm() {
             required
           />
         </label>
-        <br />
 
         {/* Starters */}
-        <label>
-          <h2>Entrée</h2>
+        <label className="text-lg italic">
+          <h2 className="text-xl font-semibold text-center mt-5">Entrée</h2>
           <br />
-          <label>
-            Scottish Salmon with Beetroot & Granary Bread
+          <label className="">
+            Scottish salmon with beetroot & granary bread
             <input
+              className="align-middle ml-2 my-3"
               type="checkbox"
               name="starters"
               value="Scottish Salmon with Beetroot & Granary Bread"
@@ -122,9 +146,10 @@ export default function RsvpForm() {
             />
           </label>
           <br />
-          <label>
-            Greek Meze with Shish Kebab
+          <label className="">
+            Greek meze with shish kebab
             <input
+              className="align-middle ml-2 my-3"
               type="checkbox"
               name="starters"
               value="Greek Meze with Shish Kebab"
@@ -135,9 +160,10 @@ export default function RsvpForm() {
             />
           </label>
           <br />
-          <label>
-            Homemade Soup (Carrot & Coriander Spicy Parsnip)
+          <label className="italic">
+            Homemade soup (carrot & coriander spicy parsnip)
             <input
+              className="align-middle ml-2 my-3"
               type="checkbox"
               name="starters"
               value="Homemade Soup (Carrot & Coriander Spicy Parsnip)"
@@ -150,7 +176,125 @@ export default function RsvpForm() {
         </label>
         <br />
 
-        <button type="submit">Submit</button>
+        {/* Mains */}
+        <br />
+        <label className="text-lg italic">
+          <h2 className="text-xl font-semibold text-center">Mains</h2>
+          <br />
+
+          <label>
+            Chargrilled breast of chicken served with roasted mediterranean
+            vegetables, dauphinois potatoes and a tangy tomato sauce
+            <input
+              className="align-middle ml-2 my-[17px]"
+              type="checkbox"
+              name="mains"
+              value="Chargrilled Breast of Chicken served with Roasted Mediterranean Vegetables, Dauphinois Potatoes and a Tangy Tomato Sauce"
+              checked={formData.mains.includes(
+                "Chargrilled Breast of Chicken served with Roasted Mediterranean Vegetables, Dauphinois Potatoes and a Tangy Tomato Sauce"
+              )}
+              onChange={handleCheckboxChange}
+            />
+          </label>
+          <br />
+          <label>
+            Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée
+            and Grilled Vegetables with a Mint Jus
+            <input
+              className="align-middle ml-2 my-[17px]"
+              type="checkbox"
+              name="mains"
+              value="Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée and Grilled Vegetables with a Mint Jus"
+              checked={formData.mains.includes(
+                "Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée and Grilled Vegetables with a Mint Jus"
+              )}
+              onChange={handleCheckboxChange}
+            />
+          </label>
+          <br />
+          <label>
+            Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce
+            and Roasted New Potatoes
+            <input
+              className="align-middle ml-2 my-[17px]"
+              type="checkbox"
+              name="mains"
+              value="Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce and Roasted New Potatoes"
+              checked={formData.mains.includes(
+                "Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce and Roasted New Potatoes"
+              )}
+              onChange={handleCheckboxChange}
+            />
+          </label>
+          <h3 className="my-2 font-semibold">Vegetarian Option</h3>
+          <label className="italic">
+            Roast Vegetable Wellington
+            <input
+              className="align-middle ml-2 my-[17px]"
+              type="checkbox"
+              name="mains"
+              value="Roast Vegetable Wellington"
+              checked={formData.mains.includes("Roast Vegetable Wellington")}
+              onChange={handleCheckboxChange}
+            />
+          </label>
+        </label>
+        <br />
+        <br />
+
+        {/* Desserts */}
+
+        <label className="text-lg italic">
+          <h2 className="text-xl font-semibold text-center my-3">Desserts</h2>
+
+          <label className="italic">
+            Profiteroles with chocolate sauce
+            <input
+              className="align-middle ml-2 my-[12px]"
+              type="checkbox"
+              name="desserts"
+              value="Profiteroles with Chocolate Sauce"
+              checked={formData.desserts.includes(
+                "Profiteroles with Chocolate Sauce"
+              )}
+              onChange={handleCheckboxChange}
+            />
+          </label>
+          <br />
+          <label className="italic">
+            Apple crumb with custard
+            <input
+              className="align-middle ml-2 my-[12px]"
+              type="checkbox"
+              name="desserts"
+              value="Apple Crumb with Custard"
+              checked={formData.desserts.includes("Apple Crumb with Custard")}
+              onChange={handleCheckboxChange}
+            />
+          </label>
+          <br />
+          <div className="flex">
+            <label className="italic">
+              Trio of desserts
+              <input
+                className="align-middle ml-2 my-4 my-[12px]"
+                type="checkbox"
+                name="desserts"
+                value="Trio of Desserts"
+                checked={formData.desserts.includes("Trio of Desserts")}
+                onChange={handleCheckboxChange}
+              />
+            </label>
+          </div>
+        </label>
+        <div className="flex  justify-center my-5">
+          <button
+            className="px-5 py-2 bg-[#529864] text-lg font-bold mb-3 text-white rounded-lg font-sans border-2 border-[#C4F6D1]"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

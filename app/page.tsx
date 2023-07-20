@@ -1,7 +1,5 @@
 import { MrDeHaviland } from "@/fonts";
 
-import Form from "./components/Form";
-
 export default function Home() {
   return (
     <div className="flex flex-1 h-screen w-full bg-floral-mobile bg-cover bg-center">
