@@ -13,6 +13,9 @@ function Header() {
       <Link href="/location" className="hover:underline">
         Location
       </Link>
+      <Link href="/gifts" className="hover:underline">
+        Gifts
+      </Link>
     </header>
   );
 }

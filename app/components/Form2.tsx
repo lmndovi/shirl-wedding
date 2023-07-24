@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 type RsvpFormData = {
   name: string;
+  rsvp: string[];
   starters: string[];
   mains: string[];
   desserts: string[];
@@ -14,6 +15,7 @@ type RsvpFormData = {
 export default function RsvpForm() {
   const [formData, setFormData] = useState<RsvpFormData>({
     name: "",
+    rsvp: [],
     starters: [],
     mains: [],
     desserts: [],
@@ -89,6 +91,7 @@ export default function RsvpForm() {
     // Map the form field name to the corresponding Google Forms entry key
     const entryKeys: Record<string, string> = {
       name: "29388653",
+      rsvp: "1224083778",
       starters: "2051004852",
       mains: "461016866",
       desserts: "294038248",
@@ -111,21 +114,48 @@ export default function RsvpForm() {
         )}
       </div>
 
-      <h1 className="text-2xl text-center font-semibold">
-        Will you be joining us?
-      </h1>
+      <h1 className="text-2xl text-center font-semibold">RSVP</h1>
       <form className="mt-8" onSubmit={handleSubmit}>
         <label className="text-lg">
           Name(s) of our fabulous guests:{" "}
           <input
             placeholder="John Doe"
-            className=" font-normal ml-1"
+            className=" font-normal pl-2"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
             required
           />
+        </label>
+
+        {/* RSVP */}
+        <label>
+          <h4>Will You Be Joining Us?</h4>
+
+          <label className="">
+            Gracefully Accept
+            <input
+              className="align-middle ml-2 my-3"
+              type="checkbox"
+              name="rsvp"
+              value="Gracefully Accept"
+              checked={formData.rsvp.includes("Gracefully Accept")}
+              onChange={handleCheckboxChange}
+            />
+          </label>
+          <br />
+          <label className="">
+            Regretfully Decline
+            <input
+              className="align-middle ml-2 my-3"
+              type="checkbox"
+              name="rsvp"
+              value="Regretfully Decline"
+              checked={formData.rsvp.includes("Regretfully Decline")}
+              onChange={handleCheckboxChange}
+            />
+          </label>
         </label>
 
         {/* Starters */}
@@ -277,7 +307,7 @@ export default function RsvpForm() {
             <label className="italic">
               Trio of desserts
               <input
-                className="align-middle ml-2 my-4 my-[12px]"
+                className="align-middle ml-2 my-[12px]"
                 type="checkbox"
                 name="desserts"
                 value="Trio of Desserts"
