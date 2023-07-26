@@ -2,12 +2,12 @@ import React from "react";
 
 const Gifts = () => {
   return (
-    <div className="mt-12">
-      <div className="text-center font-semibold text-3xl">
+    <div className="mt-24">
+      <div className="text-center font-bold text-3xl">
         <h1>Gifts</h1>
       </div>
-      <div className="flex-col space-y-12 mx-auto text-center pt-16 md:pt-8 w-60 md:w-96">
-        <p className="text-lg leading-9 italic md:text-xl md:leading-10">
+      <div className="flex-col space-y-12 mx-auto text-center pt-6 md:pt-8 w-60 md:w-96">
+        <p className="text-lg font-medium leading-9 italic md:text-xl md:leading-10">
           The most important gift to us is having you share in our special day.
           But if you wish to contribute in some other way, we would love a few
           pennies to put in our pot, for our honeymoon trip after tying the

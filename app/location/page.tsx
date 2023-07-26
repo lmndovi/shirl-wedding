@@ -6,7 +6,7 @@ function Location() {
     <div className="flex-col space-y-16 p-3 text-center py-20">
       <div>
         <h1 className="text-3xl font-semibold">Venue: </h1>
-        <div className="my-4 text-lg">
+        <div className="my-4 text-lg space-y-2 italic">
           <p>Woolston Manor Golf Club </p>
           <p>Abridge Road</p>
           <p>Chigwell</p>
@@ -19,7 +19,7 @@ function Location() {
       </div>
       <div>
         <h1 className="text-3xl font-semibold">Accommodation: </h1>
-        <div className="my-4 text-lg">
+        <div className="my-4 text-lg space-y-2 italic">
           <p>735 Chigwell Road </p>
           <p> Woodford Green </p>
           <p>IG8 8AS</p>
