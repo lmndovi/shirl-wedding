@@ -114,13 +114,13 @@ export default function RsvpForm() {
         )}
       </div>
 
-      <h1 className="text-2xl text-center font-semibold">RSVP</h1>
-      <form className="mt-8" onSubmit={handleSubmit}>
+      <h1 className="text-3xl text-center font-bold">RSVP</h1>
+      <form className="mt-8 ml-10" onSubmit={handleSubmit}>
         <label className="text-lg">
           Name(s) of our fabulous guests:{" "}
           <input
             placeholder="John Doe"
-            className=" font-normal pl-2"
+            className=" font-normal pl-3 rounded-lg"
             type="text"
             name="name"
             value={formData.name}
@@ -130,33 +130,35 @@ export default function RsvpForm() {
         </label>
 
         {/* RSVP */}
-        <label>
-          <h4>Will You Be Joining Us?</h4>
+        <div className="my-10 p-1">
+          <label>
+            <h4 className="font-semibold text-lg">Will You Be Joining Us?</h4>
 
-          <label className="">
-            Gracefully Accept
-            <input
-              className="align-middle ml-2 my-3"
-              type="checkbox"
-              name="rsvp"
-              value="Gracefully Accept"
-              checked={formData.rsvp.includes("Gracefully Accept")}
-              onChange={handleCheckboxChange}
-            />
+            <label className="">
+              Gracefully Accept
+              <input
+                className="align-middle ml-2 my-4"
+                type="checkbox"
+                name="rsvp"
+                value="Gracefully Accept"
+                checked={formData.rsvp.includes("Gracefully Accept")}
+                onChange={handleCheckboxChange}
+              />
+            </label>
+            <br />
+            <label className="">
+              Regretfully Decline
+              <input
+                className="align-middle ml-2 my-3"
+                type="checkbox"
+                name="rsvp"
+                value="Regretfully Decline"
+                checked={formData.rsvp.includes("Regretfully Decline")}
+                onChange={handleCheckboxChange}
+              />
+            </label>
           </label>
-          <br />
-          <label className="">
-            Regretfully Decline
-            <input
-              className="align-middle ml-2 my-3"
-              type="checkbox"
-              name="rsvp"
-              value="Regretfully Decline"
-              checked={formData.rsvp.includes("Regretfully Decline")}
-              onChange={handleCheckboxChange}
-            />
-          </label>
-        </label>
+        </div>
 
         {/* Starters */}
         <label className="text-lg italic">
@@ -208,67 +210,74 @@ export default function RsvpForm() {
 
         {/* Mains */}
         <br />
-        <label className="text-lg italic">
-          <h2 className="text-xl font-semibold text-center">Mains</h2>
-          <br />
+        <div className="mt-5">
+          <label className="text-lg italic">
+            <h2 className="text-xl font-semibold text-center">Mains</h2>
+            <br />
 
-          <label>
-            Chargrilled breast of chicken served with roasted mediterranean
-            vegetables, dauphinois potatoes and a tangy tomato sauce
-            <input
-              className="align-middle ml-2 my-[17px]"
-              type="checkbox"
-              name="mains"
-              value="Chargrilled Breast of Chicken served with Roasted Mediterranean Vegetables, Dauphinois Potatoes and a Tangy Tomato Sauce"
-              checked={formData.mains.includes(
-                "Chargrilled Breast of Chicken served with Roasted Mediterranean Vegetables, Dauphinois Potatoes and a Tangy Tomato Sauce"
-              )}
-              onChange={handleCheckboxChange}
-            />
+            <label>
+              Chargrilled breast of chicken served with roasted mediterranean
+              vegetables, dauphinois potatoes and a tangy tomato sauce
+              <input
+                className="align-middle ml-2 my-[17px]"
+                type="checkbox"
+                name="mains"
+                value="Chargrilled Breast of Chicken served with Roasted Mediterranean Vegetables, Dauphinois Potatoes and a Tangy Tomato Sauce"
+                checked={formData.mains.includes(
+                  "Chargrilled Breast of Chicken served with Roasted Mediterranean Vegetables, Dauphinois Potatoes and a Tangy Tomato Sauce"
+                )}
+                onChange={handleCheckboxChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot
+              Purée and Grilled Vegetables with a Mint Jus
+              <input
+                className="align-middle ml-2 my-[17px]"
+                type="checkbox"
+                name="mains"
+                value="Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée and Grilled Vegetables with a Mint Jus"
+                checked={formData.mains.includes(
+                  "Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée and Grilled Vegetables with a Mint Jus"
+                )}
+                onChange={handleCheckboxChange}
+              />
+            </label>
+            <br />
+            <br />
+            <label>
+              Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce
+              and Roasted New Potatoes
+              <input
+                className="align-middle ml-2 my-[17px]"
+                type="checkbox"
+                name="mains"
+                value="Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce and Roasted New Potatoes"
+                checked={formData.mains.includes(
+                  "Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce and Roasted New Potatoes"
+                )}
+                onChange={handleCheckboxChange}
+              />
+            </label>
+            <br />
+            <br />
+            <h3 className="my-2 font-semibold">Vegetarian Option</h3>
+            <label className="italic">
+              Roast Vegetable Wellington
+              <input
+                className="align-middle ml-2 my-[17px]"
+                type="checkbox"
+                name="mains"
+                value="Roast Vegetable Wellington"
+                checked={formData.mains.includes("Roast Vegetable Wellington")}
+                onChange={handleCheckboxChange}
+              />
+            </label>
           </label>
-          <br />
-          <label>
-            Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée
-            and Grilled Vegetables with a Mint Jus
-            <input
-              className="align-middle ml-2 my-[17px]"
-              type="checkbox"
-              name="mains"
-              value="Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée and Grilled Vegetables with a Mint Jus"
-              checked={formData.mains.includes(
-                "Rump of Lamb or Lamb Shank with Fondant Potato, Swede, Carrot Purée and Grilled Vegetables with a Mint Jus"
-              )}
-              onChange={handleCheckboxChange}
-            />
-          </label>
-          <br />
-          <label>
-            Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce
-            and Roasted New Potatoes
-            <input
-              className="align-middle ml-2 my-[17px]"
-              type="checkbox"
-              name="mains"
-              value="Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce and Roasted New Potatoes"
-              checked={formData.mains.includes(
-                "Roasted Sea Bass with Provençals of Vegetables, a Red Pepper Sauce and Roasted New Potatoes"
-              )}
-              onChange={handleCheckboxChange}
-            />
-          </label>
-          <h3 className="my-2 font-semibold">Vegetarian Option</h3>
-          <label className="italic">
-            Roast Vegetable Wellington
-            <input
-              className="align-middle ml-2 my-[17px]"
-              type="checkbox"
-              name="mains"
-              value="Roast Vegetable Wellington"
-              checked={formData.mains.includes("Roast Vegetable Wellington")}
-              onChange={handleCheckboxChange}
-            />
-          </label>
-        </label>
+        </div>
+
         <br />
         <br />
 

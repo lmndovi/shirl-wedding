@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex-col p-3">
+    <main className="flex flex-1 h-full w-full bg-floral-mobile bg-cover bg-center">
       <div className="flex">
         <h1 className="mx-auto font text-lg font-semibold font-sans text-white">
           {children}
@@ -15,7 +15,6 @@ export default function RootLayout({
       </div>
       <div>
         <Form2 />
-        {/* <MenuForm /> */}
       </div>
     </main>
   );
