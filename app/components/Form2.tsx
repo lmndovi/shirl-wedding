@@ -312,7 +312,7 @@ export default function RsvpForm() {
             />
           </label>
           <br />
-          <div className="flex">
+          <div className="flex-col">
             <label className="italic">
               Trio of desserts
               <input

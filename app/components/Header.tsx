@@ -3,7 +3,7 @@ import React from "react";
 
 function Header() {
   return (
-    <header className="flex  justify-end text-white bg-[#529864] p-4 space-x-3 tracking-widest">
+    <header className="flex  justify-end text-white bg-[#529864] p-4 space-x-6 md:space-x-10 tracking-[0.2rem]">
       <Link href="/" className="hover:underline">
         Home
       </Link>

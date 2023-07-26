@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="text-[#313638]">
       <body className={ebGaramond.className}>
         <Header />
         {children}

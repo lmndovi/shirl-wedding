@@ -3,8 +3,8 @@ import { MrDeHaviland } from "@/fonts";
 export default function Home() {
   return (
     <div className="flex flex-1 h-screen w-full bg-floral-mobile bg-cover bg-center">
-      <main className="mx-auto text-center mt-20 space-y-5 text-[#313638]">
-        <h1 className="uppercase font-medium text-5xl tracking-[18px]">
+      <main className="mx-auto text-center mt-20 md:mt-28 space-y-5 md:space-y-8 text-[#313638]">
+        <h1 className="uppercase font-medium text-5xl md:text-6xl tracking-[18px]">
           Welcome
         </h1>
         <h4 className="uppercase tracking-[5px] text-sm">to the wedding of </h4>
