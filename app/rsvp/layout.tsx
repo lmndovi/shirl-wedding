@@ -12,7 +12,7 @@ export default function RootLayout({
           {children}
         </h1>
       </div>
-      <div className="md:w-[1400px]">
+      <div className="md:w-[1700px] ">
         <Form2 />
       </div>
     </div>

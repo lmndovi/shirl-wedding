@@ -162,7 +162,9 @@ export default function RsvpForm() {
 
         {/* Starters */}
         <label className="text-lg italic">
-          <h2 className="text-xl font-semibold text-left mt-5">Entrée</h2>
+          <h2 className="text-xl font-semibold text-left md:text-center mt-5">
+            Entrée
+          </h2>
           <br />
           <label className="">
             Scottish salmon with beetroot & granary bread
@@ -212,7 +214,9 @@ export default function RsvpForm() {
         <br />
         <div className="mt-5">
           <label className="text-lg italic">
-            <h2 className="text-xl font-semibold text-left">Mains</h2>
+            <h2 className="text-xl font-semibold text-left md:text-center">
+              Mains
+            </h2>
             <br />
 
             <label>
@@ -284,7 +288,9 @@ export default function RsvpForm() {
         {/* Desserts */}
         <div className="pb-6">
           <label className="text-lg italic">
-            <h2 className="text-xl font-semibold text-left my-3">Desserts</h2>
+            <h2 className="text-xl font-semibold text-left md:text-center my-3">
+              Desserts
+            </h2>
 
             <label className="italic">
               Profiteroles with chocolate sauce
