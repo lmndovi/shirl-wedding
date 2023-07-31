@@ -115,7 +115,7 @@ export default function RsvpForm() {
       </div>
 
       <h1 className="text-3xl text-center font-bold">RSVP</h1>
-      <form className="mt-8 ml-10" onSubmit={handleSubmit}>
+      <form className="mt-8 ml-5" onSubmit={handleSubmit}>
         <label className="text-lg">
           Name(s) of our fabulous guests:{" "}
           <input
