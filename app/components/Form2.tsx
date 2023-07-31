@@ -162,7 +162,7 @@ export default function RsvpForm() {
 
         {/* Starters */}
         <label className="text-lg italic">
-          <h2 className="text-xl font-semibold text-center mt-5">Entrée</h2>
+          <h2 className="text-xl font-semibold text-left mt-5">Entrée</h2>
           <br />
           <label className="">
             Scottish salmon with beetroot & granary bread
@@ -212,7 +212,7 @@ export default function RsvpForm() {
         <br />
         <div className="mt-5">
           <label className="text-lg italic">
-            <h2 className="text-xl font-semibold text-center">Mains</h2>
+            <h2 className="text-xl font-semibold text-left">Mains</h2>
             <br />
 
             <label>
@@ -282,50 +282,52 @@ export default function RsvpForm() {
         <br />
 
         {/* Desserts */}
+        <div className="pb-6">
+          <label className="text-lg italic">
+            <h2 className="text-xl font-semibold text-left my-3">Desserts</h2>
 
-        <label className="text-lg italic">
-          <h2 className="text-xl font-semibold text-center my-3">Desserts</h2>
-
-          <label className="italic">
-            Profiteroles with chocolate sauce
-            <input
-              className="align-middle ml-2 my-[12px]"
-              type="checkbox"
-              name="desserts"
-              value="Profiteroles with Chocolate Sauce"
-              checked={formData.desserts.includes(
-                "Profiteroles with Chocolate Sauce"
-              )}
-              onChange={handleCheckboxChange}
-            />
-          </label>
-          <br />
-          <label className="italic">
-            Apple crumb with custard
-            <input
-              className="align-middle ml-2 my-[12px]"
-              type="checkbox"
-              name="desserts"
-              value="Apple Crumb with Custard"
-              checked={formData.desserts.includes("Apple Crumb with Custard")}
-              onChange={handleCheckboxChange}
-            />
-          </label>
-          <br />
-          <div className="flex-col">
             <label className="italic">
-              Trio of desserts
+              Profiteroles with chocolate sauce
               <input
                 className="align-middle ml-2 my-[12px]"
                 type="checkbox"
                 name="desserts"
-                value="Trio of Desserts"
-                checked={formData.desserts.includes("Trio of Desserts")}
+                value="Profiteroles with Chocolate Sauce"
+                checked={formData.desserts.includes(
+                  "Profiteroles with Chocolate Sauce"
+                )}
                 onChange={handleCheckboxChange}
               />
             </label>
-          </div>
-        </label>
+            <br />
+            <label className="italic">
+              Apple crumb with custard
+              <input
+                className="align-middle ml-2 my-[12px]"
+                type="checkbox"
+                name="desserts"
+                value="Apple Crumb with Custard"
+                checked={formData.desserts.includes("Apple Crumb with Custard")}
+                onChange={handleCheckboxChange}
+              />
+            </label>
+            <br />
+            <div className="flex-col">
+              <label className="italic">
+                Trio of desserts
+                <input
+                  className="align-middle ml-2 my-[12px]"
+                  type="checkbox"
+                  name="desserts"
+                  value="Trio of Desserts"
+                  checked={formData.desserts.includes("Trio of Desserts")}
+                  onChange={handleCheckboxChange}
+                />
+              </label>
+            </div>
+          </label>
+        </div>
+
         <div className="flex  justify-center my-5">
           <button
             className="px-5 py-2 bg-[#529864] text-lg font-bold mb-3 text-white rounded-lg font-sans border-2 border-[#C4F6D1]"
