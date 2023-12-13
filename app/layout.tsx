@@ -12,7 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="text-[#313638]">
+    <html
+      lang="en"
+      className="text-[#313638] scrollbar-thin scrollbar-thumb-green-[#529864] scrollbar-track-[#529864]"
+    >
       <body className={ebGaramond.className}>
         <Header />
         {children}

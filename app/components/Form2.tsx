@@ -120,7 +120,7 @@ export default function RsvpForm() {
           Name(s) of our fabulous guests:{" "}
           <input
             placeholder="John Doe"
-            className=" font-normal pl-3 rounded-lg"
+            className=" font-normal pl-3 rounded-lg text-black"
             type="text"
             name="name"
             value={formData.name}
